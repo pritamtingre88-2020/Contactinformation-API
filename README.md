@@ -9,7 +9,7 @@ Given below is the list of project in this solution and a one liner description 
 This project is the entrypoint to the WEB API and houses the controllers via which users can access data.
 
 **2. ContactInformation.BLL.Interface** -
-This project has all the contracts/interfaces/methods via which the consumer (API layer in this case) would interact with the business layer. The reason for interacting with Businesslogic layer via interface is to support loose coupling across layers. This way, we adress separation of concerns making code more maintainable and testable.
+This project has all the contracts/interfaces/methods via which the consumer (API layer in this case) would interact with the business layer. The reason for interacting with Businesslogic layer via interface is to support loose coupling across layers. This way, we address separation of concerns making code more maintainable and testable.
 
 **3. ContactInformation.BLL**-
 This project has all the concrete implementation of the BLL Interface.
