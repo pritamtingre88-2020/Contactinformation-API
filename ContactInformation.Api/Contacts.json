@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Pritam",
+    "LastName": "Tingre",
+    "Email": "pritam.tingre@exmple.com",
+    "PhoneNumber": "123-456-7890",
+    "IsActive": true
+  },
+  {
+    "Id": 2,
+    "FirstName": "Ravi",
+    "LastName": "Srivastava",
+    "Email": "ravi.srivastava@exmple.com",
+    "PhoneNumber": "123-456-555",
+    "IsActive": true
+  }
+]
