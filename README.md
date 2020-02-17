@@ -1,6 +1,6 @@
 # Contactinformation-API
 
-This is an API for maintaining contact information. It exposes basic functionality for creating, reading, updating and deleting contact.
+This is an API for maintaining contact information. It exposes basic functionality for creating, reading, updating and deleting contacts.
 
 ## Project Structure
 Given below is the list of project in this solution and a one liner description for the same
