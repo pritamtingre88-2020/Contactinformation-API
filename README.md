@@ -47,6 +47,9 @@ http://localhost:52261/swagger/ui/index
 Note - The port number in above URL might vary on your machine.
 
 
-
+## Important libraries nugets used
+1. FakeItEasy - Mocking framework used for mocking data in unit tests
+2. Autofac - IoC container used for dependency injection/resolution.
+3. Swashbuckle - Used for API documentation(Swagger UI)
 
 
