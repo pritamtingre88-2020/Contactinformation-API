@@ -54,7 +54,6 @@
   <ItemGroup>
     <Compile Include="ContactInformationDataManagerJSON.cs" />
     <Compile Include="ContactInformationDataManagerSQL.cs" />
-    <Compile Include="ContactInformationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
