@@ -24,7 +24,7 @@ This project has concrete implementation for the Data access layer interface.
 This project houses all the entities of the application.
 
 **7. ContactInformation.Utilities**-
-This project will have all the re-usable utility methods
+This project will have all the re-usable utility methods.
 
 **8. ContactInformation.Common**-
 This project has all the objects/functionality that would address cross cutting concerns i.e. functionality that would be needed by multiple layers.
@@ -41,15 +41,16 @@ Unit testing project for testing the Business logic layer.
 
 ## How to run the application
 1. Build the solution once in visual studio so that all the nuget packages/dependencies are resolved.
-2. You can then run the application using visual studio
+2. You can then run the application using visual studio.
 3. The project is integrated with swagger UI. You can navigate to below URL for exploring the methods exposed via the API
 http://localhost:52261/swagger/ui/index
+
 Note - The port number in above URL might vary on your machine.
 
 
 ## Important libraries nugets used
 1. FakeItEasy - Mocking framework used for mocking data in unit tests
 2. Autofac - IoC container used for dependency injection/resolution.
-3. Swashbuckle - Used for API documentation(Swagger UI)
+3. Swashbuckle - Used for API documentation(Swagger UI).
 
 
