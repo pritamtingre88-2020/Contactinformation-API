@@ -3,6 +3,8 @@
 This is an API for maintaining contact information. It exposes basic functionality for creating, reading, updating and deleting contacts.
 
 ## Project Structure
+All the sorce code is present under the src folder in the root directory.
+
 Given below is the list of project in this solution and a one liner description for the same
 
 **1. ContactInformation.Api** -
