@@ -42,7 +42,7 @@ namespace ContactInformation.Controllers
 
             if (contact == null)
                 return NotFound();
-            
+
             return Ok(contact);
         }
 
@@ -54,15 +54,22 @@ namespace ContactInformation.Controllers
         [Route("createcontact")]
         public IHttpActionResult CreateContact(ContactBO contact)
         {
-            var contactId = ContactInformationService.InsertContact(contact);
-            return Ok(contactId);
+            try
+            {
+                var contactId = ContactInformationService.InsertContact(contact);
+                return Ok(contactId);
+            }
+            catch (InvalidContactException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>
         /// Update contact
         /// </summary>
         /// <param name="contact">Contact to be updated</param>
-        [HttpPost]
+        [HttpPut]
         [Route("updatecontact")]
         public IHttpActionResult UpdateContact(ContactBO contact)
         {
@@ -72,9 +79,13 @@ namespace ContactInformation.Controllers
             {
                 ContactInformationService.UpdateContact(contact);
             }
-            catch(ContactNotFoundException)
+            catch (ContactNotFoundException)
             {
                 return NotFound();
+            }
+            catch (InvalidContactException ex)
+            {
+                return BadRequest(ex.Message);
             }
             return Ok();
         }
@@ -82,7 +93,7 @@ namespace ContactInformation.Controllers
         /// <summary>
         /// Delete contact
         /// </summary>
-        /// <param name="contact">Id of contact to be deleted</param>
+        /// <param name="Id">Id of contact to be deleted</param>
         [HttpDelete]
         [Route("deletecontact")]
         public void DeleteContact(int Id)

@@ -54,7 +54,8 @@ namespace ContactInformation.UnitTest.BLL
         }
 
         [TestMethod]
-        public void InsertContact_Success()
+        [ExpectedException(typeof(InvalidContactException))]
+        public void InsertContact_NullLastName_ThrowsException()
         {
             //Arrange
             A.CallTo(() => contactInformationDataManager.InsertContact(A<ContactDO>.Ignored)).Returns(5);
@@ -68,7 +69,33 @@ namespace ContactInformation.UnitTest.BLL
         }
 
         [TestMethod]
+        public void InsertContact_Success()
+        {
+            //Arrange
+            A.CallTo(() => contactInformationDataManager.InsertContact(A<ContactDO>.Ignored)).Returns(5);
+
+            //Assert
+            var result = service.InsertContact(new ContactBO { FirstName = "Test",LastName="TLast", PhoneNumber="123456",Email = "abc@xyz.com" });
+
+            //Act
+            Assert.IsNotNull(result);
+            Assert.AreEqual(5, result);
+        }
+
+        [TestMethod]
         public void UpdateContact_Success()
+        {
+            //Arrange
+            A.CallTo(() => contactInformationDataManager.GetContactById(A<int>.Ignored)).Returns(GetContacts()[0]);
+
+            //Assert
+            service.UpdateContact(new ContactBO { Id = 5, FirstName = "Test", LastName = "TLast", PhoneNumber = "123456", Email = "abc@xyz.com" });
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidContactException))]
+        public void UpdateContact_NullLastName_ThrowsException()
         {
             //Arrange
             A.CallTo(() => contactInformationDataManager.GetContactById(A<int>.Ignored)).Returns(GetContacts()[0]);

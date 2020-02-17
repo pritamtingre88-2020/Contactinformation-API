@@ -40,6 +40,7 @@ namespace ContactInformation.BLL
         /// <param name="contact">Contact to be inserted</param>
         public int InsertContact(ContactBO contact)
         {
+            ValideContactData(contact);
             var contactDO = ContactConverter.FromBOToDO(contact);
             var contactId = ContactInformationDataManager.InsertContact(contactDO);
             return contactId;
@@ -50,9 +51,11 @@ namespace ContactInformation.BLL
         /// </summary>
         /// <param name="contact">Contact to be updated</param>
         public void UpdateContact(ContactBO contact)
-        {
-           if (!ContactExists(contact.Id))
+        {            
+            if (!ContactExists(contact.Id))
                 throw new ContactNotFoundException();
+
+            ValideContactData(contact);
 
             var contactDO = ContactConverter.FromBOToDO(contact);
             ContactInformationDataManager.UpdateContact(contactDO);
@@ -70,6 +73,25 @@ namespace ContactInformation.BLL
             ContactInformationDataManager.DeleteContact(Id);
         }
 
+        private bool ValideContactData(ContactBO contact)
+        {
+            if(contact == null)
+                throw new InvalidContactException("Please supply a valid value for contact");
+
+            if (string.IsNullOrEmpty(contact.FirstName))
+                throw new InvalidContactException("First name is required");
+
+            if (string.IsNullOrEmpty(contact.LastName))
+                throw new InvalidContactException("Last name is required");
+
+            if (string.IsNullOrEmpty(contact.PhoneNumber))
+                throw new InvalidContactException("Phone number is required");
+
+            if (string.IsNullOrEmpty(contact.Email))
+                throw new InvalidContactException("Email is required");
+
+            return true;
+        }
         private bool ContactExists(int Id)
         {
             var existingcontact = ContactInformationDataManager.GetContactById(Id);
