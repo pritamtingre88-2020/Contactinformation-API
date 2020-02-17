@@ -35,6 +35,17 @@ Unit test project for testing API layer
 **10. ContactInformation.UnitTest.BLL**-
 Unit testing project for testing the Business logic layer.
 
+## Pre-requisites
+- Visual Studio 2015 or above
+- .Net Framwork 4.6 or above
+
+## How to run the application
+1. Build the solution once in visual studio so that all the nuget packages/dependencies are resolved.
+2. You can then run the application using visual studio
+3. The project is integrated with swagger UI. You can navigate to below URL for exploring the methods exposed via the API
+http://localhost:52261/swagger/ui/index
+Note - The port number in above URL might vary on your machine.
+
 
 
 
